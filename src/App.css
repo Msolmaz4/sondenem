@@ -1,0 +1,17 @@
+.form-image{
+    display: contents;
+    display: inline;
+    width: 50%;
+    height: auto;
+    float: left;
+}
+.register-form{
+    display: flex;
+    display: inline;
+    width: 40%;
+    height: auto;
+    float: left;
+    padding: 3rem;
+    margin-right: 3rem;
+    margin-left: 4rem;
+}
