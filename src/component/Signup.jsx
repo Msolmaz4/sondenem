@@ -1,18 +1,32 @@
 import React, { useState } from 'react'
 import { auth } from '../auth/fire-base'
-import { createUserWithEmailAndPassword} from 'firebase/auth'
+import { createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
+import  {useNavigate} from 'react-router-dom'
 
 const Login = () => {
-
+const navi =useNavigate()
 const [firstName ,setFirstName] =useState()
 const [lastName ,setLastName] = useState()
 const [email,setEmail] = useState()
 const [password,setPassword] =useState()
 
 
-const handleSubmit=(e)=>{
+const handleSubmit= async (e)=>{
   e.preventDefault()
 
+let displayName= firstName + '' +lastName;
+
+
+try {
+  let user =  await createUserWithEmailAndPassword(auth,email,password)
+
+await updateProfile(auth.currentUser,{displayName:displayName})
+navi('/')
+  
+} catch (error) {
+  alert(error);
+  
+}
 }
 
 
@@ -52,7 +66,7 @@ const handleSubmit=(e)=>{
       </div>
       <div className='mb-3'>
         <label for='passwort' className='for-label display-4'>Passwort</label>
-        <input type='passwort' className='form-control'  placeholder='enter Passwort'
+        <input type='password' className='form-control'  placeholder='enter Passwort'
          onChange={(e)=>setPassword(e.target.value)}
          value={password}
         

@@ -6,7 +6,7 @@ import Login from './component/Login';
 import Main from './component/Main';
 import Navbar from './component/Navbar';
 import Signup from './component/Signup';
-import AuthContextProvider from './context/AuthContext';
+import{ AuthContextProvider} from './context/AuthContext';
 
 function App() {
   return (
