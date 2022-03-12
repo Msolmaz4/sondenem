@@ -8,11 +8,27 @@ const Main = () => {
 
 const [datal,setDatal] = useState(data)
 
+const selectCat =(e,category)=>{
+  e.preventDefault()
+  if(category === 'all'){
+    setDatal(data)
+  }else{
 
+    let fil = data.filter((el)=>el.category === category)
+    setDatal(fil)
+
+  }
+
+}
   
+
+
   return (
     <>
-    <Input/>
+    <Input
+    selectCat={selectCat}
+    
+    />
     <div>
 
     <div>
