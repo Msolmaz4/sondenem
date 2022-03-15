@@ -28,7 +28,7 @@ navi('/')
         
         <a onClick={()=>navi('/')} href="#">Home</a>
 
-        <a className='nav-links' href="#">Favorit</a>
+        <a className='nav-links'  onClick={()=>navi('/Favorit')} href="#">Favorit</a>
 
         <a className='nav-links' href="#">Card</a>
 
